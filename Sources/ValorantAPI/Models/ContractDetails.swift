@@ -58,7 +58,6 @@ public struct Contract: Equatable, Codable, Identifiable {
 	
 	public struct Progression: Equatable, Codable {
 		public var totalEarned: Int
-		@StringKeyedDictionary
 		public var highestRewardedLevel: [LowercaseUUID: RewardedLevel]
 		
 		private enum CodingKeys: String, CodingKey {
@@ -86,7 +85,6 @@ public struct Mission: Equatable, Codable, Identifiable {
 	public typealias ID = ObjectID<Self, LowercaseUUID>
 	public var id: ID
 	
-	@StringKeyedDictionary
 	public var objectiveProgress: [Objective.ID: Int]
 	public var isComplete: Bool
 	public var expirationTime: Date?
