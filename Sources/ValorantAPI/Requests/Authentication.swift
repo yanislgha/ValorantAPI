@@ -23,10 +23,11 @@ extension AuthClient {
 				username: credentials.username,
 				password: credentials.password
 			))
+			print("response is : ", response)
 		default:
 			response = cookiesResponse
 		}
-		
+
 		return try await handleAuthResponse(response, loginBehavior: loginBehavior)
 	}
 	
@@ -122,7 +123,7 @@ private struct CookiesRequest: JSONJSONRequest, Encodable, AuthRequest {
 	
 	let clientID = "play-valorant-web-prod"
 	let responseType = "token id_token"
-	let redirectURI = "https://playvalorant.com/"
+	let redirectURI = "https://playvalorant.com/opt_in"
 	let nonce = 1 // TODO: this feels wrong, not sure what the nonce would be for though
 	let scope = "account openid"
 }
